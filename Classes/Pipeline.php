@@ -1,8 +1,6 @@
 <?php
 
-require_once('Computador.php');
-
-class Pipe extends Computador
+class PipelineClass
 {
     
     public function getNome()
@@ -17,7 +15,7 @@ class Pipe extends Computador
         echo $trim;
     }
 
-    public function trataAll()
+    public function trataMsg()
     {
         
     }
