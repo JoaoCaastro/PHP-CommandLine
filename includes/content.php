@@ -1,7 +1,7 @@
 <?php
-require_once 'Classes/Pipes.php';
+require_once 'Classes/Pipeline.php';
 
-$comm = new Pipe;
+$comm = new Pipeline;
 $comm->getNome();
 //$comm->trataAll();
 
