@@ -1,6 +1,6 @@
 <?php
 
-class PipelineClass
+class Pipeline extends Computador
 {
     
     public function getNome()
