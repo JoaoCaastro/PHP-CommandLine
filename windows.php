@@ -1,18 +1,47 @@
 <?php 
 echo "Hello world of PHP CLI! \n"; 
 
-echo "Choose your side, GUI/CLI \n";
-$choose = readline("Type you choose:");
-readline_add_history($choose);
+// $short = 'dt:s';
 
-    switch($choose){
-        case 'CLI':
-            echo "Welcome a board \n";
+// $long = [
+//     'date',
+//     'texto:',
+//     'system'
+// ];
+
+// $options = getopt($short, $long);
+
+echo "Choose your side, GUI/CLI \n";
+$username = readline("Digite seu nome: ");
+readline_add_history($username);
+
+echo "Seja bem-vindo ".$username."!\n";
+
+$cmd = readline("Digite o comando desejado: ");
+readline_add_history($cmd);
+
+// $cmd = array_key_first($options);
+
+    switch($cmd){
+        case 'd':
+        case 'date':
+            echo date('d/m/Y H:i:s')."\n";
             break;
-        case 'GUI':
-            echo "See you later \n";
-            break;
+        case 't':
+        case 'texto':
+            echo $options[$cmd]."\n";
+        break;
+        case 'S':
+        case 'system':
+            $output = shell_exec('systeminfo');
+            if($output){
+                echo $output;
+            }else{
+                $sh = shell_exec('uname -a');
+                echo $sh;
+            }
+        break;
         default:
-            echo "Escolha inválida \n";
+            echo "comando invalido\n";
     }
 ?>
