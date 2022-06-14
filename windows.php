@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 echo "Hello world of PHP CLI! \n"; 
 
 // $short = 'dt:s';
@@ -33,8 +34,9 @@ readline_add_history($cmd);
         break;
         case 'S':
         case 'system':
-            $output = shell_exec('systeminfo');
-            if($output){
+            $new = system('systeminfo 2>&1', $output);
+            if($output == 0){
+                $output = shell_exec('systeminfo');
                 echo $output;
             }else{
                 $sh = shell_exec('uname -a');
