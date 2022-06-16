@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 class Pipeline extends Computador
+=======
+class Pipeline
+>>>>>>> b744e822fe31623b5806e43444bcb5cb5cbb3e57
 {
     
     public function getNome()
