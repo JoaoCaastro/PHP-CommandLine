@@ -1,18 +1,45 @@
-<?php 
+<?php
+include_once('novo.php');
+
+    $system = new System();
+
 echo "Hello world of PHP CLI! \n"; 
 
-echo "Choose your side, GUI/CLI \n";
-$choose = readline("Type you choose:");
-readline_add_history($choose);
+echo 
+"╔═══╦╗ ╔╦═══╗    ╔═══╦╗  ╔══╗
+║╔═╗║║ ║║╔═╗║    ║╔═╗║║  ╚╣╠╝
+║╚═╝║╚═╝║╚═╝║    ║║ ╚╣║   ║║
+║╔══╣╔═╗║╔══╝╔══╗║║ ╔╣║ ╔╗║║
+║║  ║║ ║║║   ╚══╝║╚═╝║╚═╝╠╣╠╗
+╚╝  ╚╝ ╚╩╝       ╚═══╩═══╩══╝
+" . "\n";
+$username = readline("Username: ");
+readline_add_history($username);
 
-    switch($choose){
-        case 'CLI':
-            echo "Welcome a board \n";
+echo "Welcome a board ".$username."!\n";
+
+$cmd = readline("Command ");
+readline_add_history($cmd);
+
+// $cmd = array_key_first($options);
+
+    switch($cmd){
+        case 'system --all':
+            $system->getSysAll();
             break;
-        case 'GUI':
-            echo "See you later \n";
+
+        case 'system':
+            $system->getOS();
+            break;
+        
+        case 'memory':
+            #$system->getMem();
+            break;
+        case 'help':
+        case '?':
+            echo "Possible Commands: \n";
+            $system->getHelp();
             break;
         default:
-            echo "Escolha inválida \n";
+            echo "comando invalido\n";
     }
-?>
